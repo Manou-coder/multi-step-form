@@ -14,6 +14,9 @@ module.exports = {
         LightBlue: 'hsl(206, 94%, 87%)',
         StrawberryRed: 'hsl(354, 84%, 57%)',
       },
+      boxShadow: {
+        // customize: '0px 0px 0px 2px hsl(243, 100%, 62%)',
+      },
     },
     fontFamily: {},
   },
