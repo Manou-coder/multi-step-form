@@ -1,15 +1,15 @@
 import React from 'react'
-import Info from './Sidebar-end'
-import Sidebar from './Sidebar-start'
+import { SidebarStart } from './SidebarStart'
+import { steps } from '../data/data'
+import { SidebarEnd } from './SidebarEnd'
 const Wrapper = () => {
-  const arr = ['YOUR INFO', 'SELECT-PLANS', 'ADD-ONS', 'SUMMARY']
   return (
     <div className="w-[940px] flex bg-white shadow-xl p-4 pr-0 rounded-2xl">
       <section>
-        <Sidebar arr={arr} />
+        <SidebarStart steps={steps} />
       </section>
       <section className="w-full flex justify-center items-center">
-        <Info />
+        <SidebarEnd steps={steps} />
       </section>
     </div>
   )

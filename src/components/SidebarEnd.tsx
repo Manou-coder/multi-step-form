@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { Step } from '../data/data'
 
 type IFormInputs = {
   name: string
@@ -9,7 +10,7 @@ type IFormInputs = {
 
 const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data)
 
-const SidebarEnd = () => {
+export const SidebarEnd = ({ steps }: { steps: Step[] }) => {
   const {
     register,
     formState: { errors },
@@ -108,5 +109,3 @@ const SidebarEnd = () => {
     </div>
   )
 }
-
-export default SidebarEnd
