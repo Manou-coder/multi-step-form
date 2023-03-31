@@ -2,7 +2,13 @@ import React from 'react'
 import BgSidebarDesktop from '../assets/images/bg-sidebar-desktop.svg'
 import { Step } from '../data/data'
 
-export const SidebarStart = ({ steps }: { steps: Step[] }) => {
+export const SidebarStart = ({
+  steps,
+  stepIndex,
+}: {
+  steps: Step[]
+  stepIndex: number
+}) => {
   return (
     <div
       style={{
@@ -18,17 +24,16 @@ export const SidebarStart = ({ steps }: { steps: Step[] }) => {
           index !== steps.length - 1 ? (
             <li key={step.id} className="flex items-center gap-4">
               <span
-                className="
-          circle
-          flex justify-center items-center 
-          h-9 w-9 
-          rounded-full 
-          border border-white 
-          cursor-pointer 
-          text-white
-          hover:bg-LightBlue
-          hover:first:text-black
-          "
+                className={`
+                circle
+                flex justify-center items-center 
+                h-9 w-9 
+                rounded-full 
+                border border-white 
+                cursor-pointer 
+                text-white
+                ${stepIndex === index && 'bg-LightBlue first:text-black'}
+                `}
               >
                 <span className="">{step.id}</span>
               </span>
