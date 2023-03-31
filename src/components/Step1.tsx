@@ -1,6 +1,9 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Step } from '../data/data'
+import { Footer } from './Footer'
+import { Header } from './Header'
+import { Main } from './Main'
 
 type IFormInputs = {
   name: string
@@ -29,15 +32,13 @@ export const Step1 = ({
     setStepIndex((curr: number) => curr + 1)
     setUserInfo((curr: object) => ({ ...curr, data }))
     // console.log(data)
+    console.log('submit form')
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="h-full">
-      <div className="h-1/4 flex flex-col justify-center gap-2">
-        <h1 className="font-bold text-3xl text-MarineBlue">{step.title}</h1>
-        <p className="text-CoolGray">{step.description}</p>
-      </div>
-      <div className="h-[65%] flex flex-col justify-start gap-8 text-MarineBlue">
+      <Header step={step} />
+      <Main>
         {/* name */}
         <div className="flex flex-col">
           <div className="flex justify-between">
@@ -104,21 +105,8 @@ export const Step1 = ({
             placeholder={'e.g. +1 234 567 890'}
           />
         </div>
-      </div>
-      <div className="h-[10%] flex justify-between items-center">
-        <button
-          onClick={() => setStepIndex((curr: number) => curr - 1)}
-          className={`text-CoolGray ${stepIndex === 0 && 'invisible'}`}
-        >
-          Go Back
-        </button>
-        <button
-          type="submit"
-          className="bg-MarineBlue text-white h-11 px-5 rounded-lg"
-        >
-          Next Step
-        </button>
-      </div>
+      </Main>
+      <Footer stepIndex={stepIndex} setStepIndex={setStepIndex} />
     </form>
   )
 }

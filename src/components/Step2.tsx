@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Step } from '../data/data'
 import { Card } from './Card'
+import { Footer } from './Footer'
 
 type IFormInputs = {
   name: string
@@ -42,22 +43,8 @@ export const Step2 = ({
         <div className="flex">
           <Card />
         </div>
-        <div></div>
       </div>
-      <div className="h-[10%] flex justify-between items-center">
-        <button
-          onClick={() => setStepIndex((curr: number) => curr - 1)}
-          className={`text-CoolGray ${stepIndex === 0 && 'invisible'}`}
-        >
-          Go Back
-        </button>
-        <button
-          type="submit"
-          className="bg-MarineBlue text-white h-11 px-5 rounded-lg"
-        >
-          Next Step
-        </button>
-      </div>
+      <Footer stepIndex={stepIndex} setStepIndex={setStepIndex} />
     </form>
   )
 }
