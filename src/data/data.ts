@@ -1,3 +1,7 @@
+import Arcade from '../assets/images/icon-arcade.svg'
+import Advanced from '../assets/images/icon-advanced.svg'
+import Pro from '../assets/images/icon-pro.svg'
+
 export type Step = {
   id: string
   sidebar: string
@@ -35,5 +39,29 @@ export const steps: Step[] = [
     sidebar: '',
     title: '',
     description: '',
+  },
+]
+
+export type CardType = {
+  image: string
+  title: 'Arcade' | 'Advanced' | 'Pro'
+  monthPrice: number
+}
+
+export const cards: CardType[] = [
+  {
+    image: Arcade,
+    title: 'Arcade',
+    monthPrice: 9,
+  },
+  {
+    image: Advanced,
+    title: 'Advanced',
+    monthPrice: 12,
+  },
+  {
+    image: Pro,
+    title: 'Pro',
+    monthPrice: 15,
   },
 ]

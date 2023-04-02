@@ -1,6 +1,5 @@
-import React from 'react'
-import BgSidebarDesktop from '../assets/images/bg-sidebar-desktop.svg'
-import { Step } from '../data/data'
+import BgSidebarDesktop from '../../assets/images/bg-sidebar-desktop.svg'
+import { Step } from '../../data/data'
 
 export const SidebarStart = ({
   steps,

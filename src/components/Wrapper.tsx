@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
-import { SidebarStart } from './SidebarStart'
+import { useState } from 'react'
 import { steps } from '../data/data'
-import { SidebarEnd } from './SidebarEnd'
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
+import { SidebarEnd } from './sidebar-end/SidebarEnd'
+import { SidebarStart } from './sidebar-start/SidebarStart'
+import { PersonalInfo } from './PersonalInfo'
+import { Plan, Step2 } from './Step2'
+
+export type UserInfoType = Plan
 
 const Wrapper = () => {
   const [stepIndex, setStepIndex] = useState<number>(0)
-  const [userInfo, setUserInfo] = useState<object>({})
+  const [userInfo, setUserInfo] = useState<object>({
+    plan: 'Arcade',
+    monthly: true,
+  })
   console.log('userInfo: ', userInfo)
 
   return (
@@ -18,7 +23,7 @@ const Wrapper = () => {
       <section className="w-full flex justify-center items-center">
         <SidebarEnd>
           {stepIndex === 0 && (
-            <Step1
+            <PersonalInfo
               step={steps[0]}
               stepIndex={stepIndex}
               setStepIndex={setStepIndex}
@@ -31,6 +36,7 @@ const Wrapper = () => {
               stepIndex={stepIndex}
               setStepIndex={setStepIndex}
               setUserInfo={setUserInfo}
+              userInfo={userInfo}
             />
           )}
         </SidebarEnd>

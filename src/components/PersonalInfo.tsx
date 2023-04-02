@@ -1,9 +1,8 @@
-import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Step } from '../data/data'
-import { Footer } from './Footer'
-import { Header } from './Header'
-import { Main } from './Main'
+import { Footer } from './sidebar-end/Footer'
+import { Header } from './sidebar-end/Header'
+import { Main } from './sidebar-end/Main'
 
 type IFormInputs = {
   name: string
@@ -11,7 +10,7 @@ type IFormInputs = {
   phone: number
 }
 
-export const Step1 = ({
+export const PersonalInfo = ({
   step,
   stepIndex,
   setStepIndex,

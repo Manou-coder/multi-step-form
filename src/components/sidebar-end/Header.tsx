@@ -1,5 +1,5 @@
 import React from 'react'
-import { Step } from '../data/data'
+import { Step } from '../../data/data'
 
 export const Header = ({ step }: { step: Step }) => {
   return (
