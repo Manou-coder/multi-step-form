@@ -1,19 +1,23 @@
 import React from 'react'
 
+type FooterProps = {
+  isFirstStep: boolean
+  isLastStep: boolean
+  goBackwards: () => void
+}
+
 export const Footer = ({
-  stepIndex,
-  setStepIndex,
-}: {
-  stepIndex: number
-  setStepIndex: React.Dispatch<React.SetStateAction<number>>
-}) => {
+  isFirstStep,
+  isLastStep,
+  goBackwards,
+}: FooterProps) => {
   return (
     <div className="h-[10%] flex justify-between items-center">
       <button
         type="button"
-        onClick={() => setStepIndex((curr: number) => curr - 1)}
+        onClick={goBackwards}
         className={`text-CoolGray active:text-MarineBlue ${
-          stepIndex === 0 && 'invisible'
+          isFirstStep && 'invisible'
         }`}
       >
         Go Back

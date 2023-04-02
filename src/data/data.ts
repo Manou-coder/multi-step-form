@@ -65,3 +65,52 @@ export const cards: CardType[] = [
     monthPrice: 15,
   },
 ]
+
+export type FormItems = {
+  name: string
+  email: string
+  phone: string
+  plan: 'Arcade' | 'Advanced' | 'Pro'
+  planLength: boolean
+  isLargerStorage: boolean
+  isCustomizableProfile: boolean
+  isOnlineService: boolean
+}
+
+export const initialValues: FormItems = {
+  name: '',
+  email: '',
+  phone: '',
+  plan: 'Arcade',
+  planLength: false,
+  isLargerStorage: false,
+  isCustomizableProfile: false,
+  isOnlineService: false,
+}
+
+export const planOptions = {
+  Arcade: {
+    monthly: 9,
+    yearly: 90,
+  },
+  Advanced: {
+    monthly: 12,
+    yearly: 120,
+  },
+  Pro: {
+    monthly: 15,
+    yearly: 150,
+  },
+  onlineServices: {
+    monthly: 1,
+    yearly: 10,
+  },
+  largerStorage: {
+    monthly: 2,
+    yearly: 20,
+  },
+  customizableProfile: {
+    monthly: 2,
+    yearly: 20,
+  },
+}

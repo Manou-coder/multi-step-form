@@ -1,42 +1,23 @@
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Step } from '../data/data'
+import { FormItems, Step, steps } from '../data/data'
 import { Footer } from './sidebar-end/Footer'
 import { Header } from './sidebar-end/Header'
 import { Main } from './sidebar-end/Main'
 
-type IFormInputs = {
-  name: string
-  email: string
-  phone: number
+export type StepProps = FormItems & {
+  updateForm: (item: Partial<FormItems>) => void
 }
 
-export const PersonalInfo = ({
-  step,
-  stepIndex,
-  setStepIndex,
-  setUserInfo,
-}: {
-  step: Step
-  stepIndex: number
-  setStepIndex: React.Dispatch<React.SetStateAction<number>>
-  setUserInfo: React.Dispatch<React.SetStateAction<object>>
-}) => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<IFormInputs>()
-
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    setStepIndex((curr: number) => curr + 1)
-    setUserInfo((curr: object) => ({ ...curr, data }))
-    // console.log(data)
-    console.log('submit form')
+export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
+  const errors = {
+    name: false,
+    email: false,
+    phone: false,
   }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="h-full">
-      <Header step={step} />
+    <>
+      <Header step={steps[0]} />
       <Main>
         {/* name */}
         <div className="flex flex-col">
@@ -55,9 +36,17 @@ export const PersonalInfo = ({
                 : 'focus:border-PurplishBlue'
             }
           `}
-            {...register('name', { required: true })}
             type={'text'}
             placeholder={'e.g Stephen King'}
+            id="name"
+            name="name"
+            value={name}
+            required
+            onChange={(e) => {
+              updateForm({ name: e.target.value })
+            }}
+            autoFocus
+            autoComplete="name"
           />
         </div>
         {/* email */}
@@ -77,9 +66,13 @@ export const PersonalInfo = ({
                 : 'focus:border-PurplishBlue'
             }
           `}
-            {...register('email', { required: true })}
             type={'email'}
+            value={email}
+            onChange={(e) => {
+              updateForm({ email: e.target.value })
+            }}
             placeholder={'e.g. stephenking@lorem.com'}
+            autoComplete="email"
           />
         </div>
         {/* phone */}
@@ -99,13 +92,16 @@ export const PersonalInfo = ({
                 : 'focus:border-PurplishBlue'
             }
           `}
-            {...register('phone', { required: true })}
             type={'number'}
+            value={phone}
+            onChange={(e) => {
+              updateForm({ phone: e.target.value })
+            }}
             placeholder={'e.g. +1 234 567 890'}
+            autoComplete="phone"
           />
         </div>
       </Main>
-      <Footer stepIndex={stepIndex} setStepIndex={setStepIndex} />
-    </form>
+    </>
   )
 }

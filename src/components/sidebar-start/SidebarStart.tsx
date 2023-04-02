@@ -1,13 +1,7 @@
 import BgSidebarDesktop from '../../assets/images/bg-sidebar-desktop.svg'
-import { Step } from '../../data/data'
+import { Step, steps } from '../../data/data'
 
-export const SidebarStart = ({
-  steps,
-  stepIndex,
-}: {
-  steps: Step[]
-  stepIndex: number
-}) => {
+export const SidebarStart = ({ currentIndex }: { currentIndex: number }) => {
   return (
     <div
       style={{
@@ -31,7 +25,7 @@ export const SidebarStart = ({
                 border border-white 
                 cursor-pointer 
                 text-white
-                ${stepIndex === index && 'bg-LightBlue first:text-black'}
+                ${currentIndex === index && 'bg-LightBlue first:text-black'}
                 `}
               >
                 <span className="">{step.id}</span>
