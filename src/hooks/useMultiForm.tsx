@@ -1,16 +1,16 @@
 import { useState, ReactElement } from 'react'
 
 const useMultiForm = (formSteps: number) => {
-  const [currentIndex, setCurrentIndex] = useState(1)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  console.log('currentIndex: ', currentIndex)
 
   const goBackwards = () => {
     if (currentIndex === 0) return
-    // console.log('go')
     setCurrentIndex((prev) => prev - 1)
   }
 
   const goForwards = () => {
-    if (currentIndex === formSteps - 1) return
+    if (currentIndex === formSteps) return
     setCurrentIndex((prev) => prev + 1)
   }
 

@@ -114,3 +114,35 @@ export const planOptions = {
     yearly: 20,
   },
 }
+
+export type AddOnType = {
+  title: string
+  id: string
+  description: string
+  monthly: number
+  yearly: number
+}
+
+export const addons: AddOnType[] = [
+  {
+    title: 'Online Services',
+    id: 'isOnlineService',
+    description: 'Access to multiplayer games.',
+    monthly: 1,
+    yearly: 10,
+  },
+  {
+    title: 'Larger storage',
+    id: 'isLargerStorage',
+    description: 'Extra 1TB of cloud save.',
+    monthly: 2,
+    yearly: 20,
+  },
+  {
+    title: 'Customizable Profile',
+    id: 'isCustomizableProfile',
+    description: 'Custom theme on your profile.',
+    monthly: 2,
+    yearly: 20,
+  },
+]

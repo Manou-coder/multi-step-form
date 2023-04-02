@@ -25,8 +25,11 @@ export const SidebarStart = ({ currentIndex }: { currentIndex: number }) => {
                 border border-white 
                 cursor-pointer 
                 text-white
-                ${currentIndex === index && 'bg-LightBlue first:text-black'}
-                `}
+                ${
+                  currentIndex === index || currentIndex === index + 1
+                    ? 'bg-LightBlue first:text-black'
+                    : ''
+                }`}
               >
                 <span className="">{step.id}</span>
               </span>
