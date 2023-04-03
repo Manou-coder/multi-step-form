@@ -103,13 +103,13 @@ const getPrice = (
 }
 
 const total = (
-  plan: string | undefined,
+  plan: 'Arcade' | 'Pro' | 'Advanced',
   planLength: boolean,
-  selectedOption: AddOnType[]
+  selectedOption: any
 ): number | null => {
   if (!plan) return null
   const calculateMonthlyOptions = selectedOption?.reduce(
-    (total, addon) => total + addon.monthly,
+    (total: any, addon: any) => total + addon.monthly,
     0
   )
   const totalMonthly =
