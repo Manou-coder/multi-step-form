@@ -9,7 +9,7 @@ export const SelectPlan = ({ plan, planLength, updateForm }: StepProps) => {
     <>
       <Header step={steps[1]} />
       <Main>
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           {cards.map((card) => (
             <Card
               key={card.title}

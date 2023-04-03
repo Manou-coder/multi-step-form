@@ -3,6 +3,10 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        desktop: 'url(src/assets/images/bg-sidebar-desktop.svg)',
+        mobile: 'url(src/assets/images/bg-sidebar-mobile.svg)',
+      },
       colors: {
         CoolGray: 'hsl(231, 11%, 63%)',
         LightGray: 'hsl(229, 24%, 87%)',

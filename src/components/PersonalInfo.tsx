@@ -9,12 +9,19 @@ export type StepProps = FormItems & {
   updateForm: (item: Partial<FormItems>) => void
 }
 
-export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
+export const PersonalInfo = ({
+  name,
+  email,
+  phone,
+  updateForm,
+  isFormError,
+}: StepProps & { isFormError: any }) => {
   const errors = {
     name: false,
     email: false,
     phone: false,
   }
+  console.log('isFormError: ', isFormError)
   return (
     <>
       <Header step={steps[0]} />
@@ -23,15 +30,15 @@ export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
         <div className="flex flex-col">
           <div className="flex justify-between">
             <label htmlFor={'name'}>{'Name'}</label>
-            {errors.name && (
+            {isFormError.name && !name ? (
               <p className="text-StrawberryRed font-medium">
                 This field is required
               </p>
-            )}
+            ) : null}
           </div>
           <input
             className={`border py-2 px-3 rounded-lg font-medium outline-none ${
-              errors.name
+              isFormError.name && !name
                 ? 'border border-red-500'
                 : 'focus:border-PurplishBlue'
             }
@@ -41,7 +48,7 @@ export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
             id="name"
             name="name"
             value={name}
-            required
+            // required
             onChange={(e) => {
               updateForm({ name: e.target.value })
             }}
@@ -53,15 +60,15 @@ export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
         <div className="flex flex-col">
           <div className="flex justify-between">
             <label htmlFor={'email'}>{'Email Adress'}</label>
-            {errors.email && (
+            {isFormError.email && !email ? (
               <p className="text-StrawberryRed font-medium">
                 This field is required
               </p>
-            )}
+            ) : null}
           </div>
           <input
             className={`border py-2 px-3 rounded-lg font-medium outline-none ${
-              errors.email
+              isFormError.email && !email
                 ? 'border border-red-500'
                 : 'focus:border-PurplishBlue'
             }
@@ -79,15 +86,15 @@ export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
         <div className="flex flex-col">
           <div className="flex justify-between">
             <label htmlFor={'phone'}>{'Phone Number'}</label>
-            {errors.phone && (
+            {isFormError.phone && !phone ? (
               <p className="text-StrawberryRed font-medium">
                 This field is required
               </p>
-            )}
+            ) : null}
           </div>
           <input
             className={`border py-2 px-3 rounded-lg font-medium outline-none ${
-              errors.phone
+              isFormError.phone && !phone
                 ? 'border border-red-500'
                 : 'focus:border-PurplishBlue'
             }
@@ -99,6 +106,7 @@ export const PersonalInfo = ({ name, email, phone, updateForm }: StepProps) => {
             }}
             placeholder={'e.g. +1 234 567 890'}
             autoComplete="phone"
+            // required
           />
         </div>
       </Main>

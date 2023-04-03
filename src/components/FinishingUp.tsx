@@ -44,7 +44,11 @@ export const FinishingUp = ({
               <p className="font-bold leading-none">{`${plan} (${
                 !planLength ? 'Month' : 'Year'
               })`}</p>
-              <button type="button" className="text-CoolGray underline">
+              <button
+                onClick={() => updateForm({ planLength: !planLength })}
+                type="button"
+                className="text-CoolGray underline"
+              >
                 change
               </button>
             </div>

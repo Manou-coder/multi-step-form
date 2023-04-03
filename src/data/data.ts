@@ -34,12 +34,6 @@ export const steps: Step[] = [
     title: 'Finishing up',
     description: 'Double-check everything looks OK before confirming.',
   },
-  {
-    id: '5',
-    sidebar: '',
-    title: '',
-    description: '',
-  },
 ]
 
 export type CardType = {
