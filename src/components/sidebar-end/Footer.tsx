@@ -6,11 +6,7 @@ type FooterProps = {
   goBackwards: () => void
 }
 
-export const Footer = ({
-  isFirstStep,
-  isLastStep,
-  goBackwards,
-}: FooterProps) => {
+export const Footer = ({ isFirstStep, goBackwards }: FooterProps) => {
   return (
     <div className="h-[10%] bg-white absolute left-0 bottom-0 md:static w-screen md:w-full flex justify-between items-center px-8 md:p-0">
       <button

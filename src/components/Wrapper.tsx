@@ -1,6 +1,5 @@
 import { FormEvent, SetStateAction, useState } from 'react'
 import { FormItems, steps } from '../data/data'
-import { SidebarEnd } from './sidebar-end/SidebarEnd'
 import { SidebarStart } from './sidebar-start/SidebarStart'
 import { PersonalInfo } from './PersonalInfo'
 import { SelectPlan } from './SelectPlan'
